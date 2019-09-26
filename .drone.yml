@@ -22,7 +22,9 @@ steps:
         from_secret: github_token
       files:
         - build/*
-        - build/static/*
+        - build/static/css/*
+        - build/static/js/*
+        - build/static/media/*
     when:
       event: tag
   - name: notify
