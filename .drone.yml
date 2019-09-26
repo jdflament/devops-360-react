@@ -15,16 +15,15 @@ steps:
     image: node:alpine
     commands:
       - npm run test
-  - name: publish
+  - name: release
     image: plugins/github-release
+    commands:
+      - tar -zcvf build.tar.gz build/
     settings:
       api_key:
         from_secret: github_token
       files:
-        - build/*
-        - build/static/css/*
-        - build/static/js/*
-        - build/static/media/*
+        - build.tar.gz
     when:
       event: tag
   - name: notify
