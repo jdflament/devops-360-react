@@ -15,10 +15,12 @@ steps:
     image: node:alpine
     commands:
       - npm run test
-  - name: release
-    image: plugins/github-release
+  - name: prerelease
+    image: node:alpine
     commands:
       - tar -zcvf build.tar.gz build/
+  - name: release
+    image: plugins/github-release
     settings:
       api_key:
         from_secret: github_token
