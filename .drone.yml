@@ -20,7 +20,9 @@ steps:
     settings:
       api_key:
         from_secret: github_token
-      files: build/*
+      files:
+        - build/*
+        - build/static/*
     when:
       event: tag
   - name: notify
