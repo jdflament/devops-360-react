@@ -16,7 +16,7 @@ steps:
     commands:
       - npm run test
   - name: prerelease
-    image: node:alpine
+    image: alpine
     commands:
       - tar -zcvf build.tar.gz build/
   - name: release
