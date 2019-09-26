@@ -11,13 +11,15 @@ steps:
     image: node:alpine
     commands:
       - npm run build
-  - name: test
+  - name: tests
     image: node:alpine
     commands:
       - npm run test
   - name: notify
     image: plugins/slack
     settings:
+      username: Drone
+      icon_url: https://avatars0.githubusercontent.com/u/2181346?s=400&v=4
       channel: react-ci-cd-jdflament
       webhook:
         from_secret: slack_webhook
